@@ -1,0 +1,134 @@
+.wrapper{
+  height: 100%;
+  overflow: auto;
+  .auth{
+    background-image: url('/assets/grid-view.png');
+    background-size: contain;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    @media (min-width: 768px){
+      padding: 5rem 4rem;
+      flex-grow: 1;
+    }
+    @media (min-width: 992px){
+      padding: 5rem 8rem;
+    }
+    .caption{
+      display: none;
+      @media (min-width: 768px){
+        display: inline-block;
+        width: 50%;
+      }
+      @media (min-width: 1200px){
+        width: 70%;
+      }
+      color: white;
+      h1{
+        font-size: 6rem;
+        font-weight: 300;
+        margin-left: -1rem;
+      }
+      .ribbon{
+        background: url('/assets/ribbon.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 15rem;
+        height: 3.5rem;
+      }
+    }
+    .form-hd{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: rgba(30, 30, 30, .5);
+      flex-grow: 1;
+      height: 100%;
+      @media (min-width: 768px){
+        padding: 1rem 0;
+        background: rgba(30, 30, 30, 1);
+      }
+      box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, .7);
+      header{
+        color: white;
+        margin: 2rem 0;
+        @media (min-width: 768px){
+          margin: 1rem 0;
+        }
+        span{
+          cursor: pointer;
+          display: inline-block;
+          width: 50%;
+          text-align: center;
+          font-weight: 500;
+          font-family: Raleway;
+          font-size: 1.2rem;
+          padding: .3rem;
+          color: rgb(145, 145, 145);
+          &.active {
+            color: white;
+          }
+        }
+        span:first-child{
+          border-right: 1px solid rgb(145, 145, 145);
+        }
+      }
+      .auth-forms{
+        overflow: hidden;
+        height: 100%;
+        @media (min-width: 768px){
+          flex-grow:10;
+        }
+        display: flex;
+        position: relative;
+        form{
+          &.signup{
+            left: -110%;
+          }
+          &.login{
+            left: 110%;
+          }
+          &.active{
+            left: 0;
+          }
+          position: absolute;
+          width: 100%;
+          button{
+            width: 100%;
+            color: rgb(161, 58, 120);
+            border: 2px solid rgb(161, 58, 120);
+            margin: 2rem 0;
+            font-weight: 600;
+            border-radius: .2rem;
+            &:hover{
+              background: rgb(161, 58, 120);
+              border-color: rgb(161, 58, 120);
+              color: white;
+            }
+          }
+          input{
+            background: rgba(255,255,255, .2);
+            border: none;
+            color: rgb(221, 221, 221);
+            margin: 1rem 0;
+            padding: 1.3rem .8rem;
+            @media (min-width: 768px){
+              margin: .81rem 0;
+              padding: .6rem .4rem;
+              font-size: .81rem;
+            }
+            @media (min-width: 992px){
+              margin: 1rem 0;
+              padding: 1.3rem .8rem;
+            }
+          }
+        }
+      }
+    }
+}
+}
