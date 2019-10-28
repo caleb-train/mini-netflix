@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', 'Raleway', sans-serif;
+  height: 100vh;
+}
+a, a:hover{
+  color: rgb(236, 236, 236);
+}
+
+button:focus, li:focus {
+  outline: none !important; }
+
+.anim {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease; }

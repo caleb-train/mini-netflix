@@ -1,0 +1,17 @@
+<nav class="main-nav px-sm-5 px-3">
+  <div class="nav-headr">
+    <a class="logo navbar-brand" [routerLink]="['/']">
+      <img src = "/assets/volgi-logo.svg"/>
+    </a>
+    <button class="hamburger hamburger--collapse" type="button"  (click)="isCollapsed= !isCollapsed" [class.is-active]="!isCollapsed">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+  </div>
+  <ul class="nav text-center anim" [class.collapse]="isCollapsed">
+    <li class="nav-item mx-2"><a class="nav-link" [routerLink]="['/home']">Home</a></li>
+    <li class="nav-item mx-2"><a class="nav-link" [routerLink]="['/movies']">Movies</a></li>
+    <li class="nav-item mx-2"><a class="nav-link" [routerLink]="['/tv-shows']">TV Shows</a></li>
+  </ul>
+</nav>

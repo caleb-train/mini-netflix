@@ -1,0 +1,32 @@
+ <!-- <carousel></carousel> -->
+<div class="wrapper">
+<NavBar></NavBar>
+<main class="auth">
+  <section class="caption">
+    <h1>Vigo</h1>
+    <div class="ribbon">
+        <h2>Movies</h2>
+    </div>
+  </section>
+  <section class="form-hd">
+    <header class="auth-header">
+      <span [class.active]="auth=='signup'" (click)= "switchAuth('signup')">Sign up</span>
+      <span [class.active]="auth=='login'" (click)= "switchAuth('login')">Log in</span>
+    </header>
+    <div class="auth-forms w-75 mx-auto py-1">
+      <form [class.active]="auth=='signup'" [class.invisible]="auth !=='signup'" action="" class="signup anim">
+        <input class="form-control" placeholder="First Name"/>
+        <input class="form-control" placeholder="Last Name"/>
+        <input class="form-control" placeholder="Email"/>
+        <input class="form-control" placeholder="Password" type="password"/>
+        <button class="btn">Submit</button>
+      </form>
+      <form [class.active]="auth=='login'" [class.invisible]="auth !=='login'" action="" class="login anim">
+          <input class="form-control" placeholder="Email"/>
+          <input class="form-control" placeholder="Password" type="password"/>
+          <button class="btn">Submit</button>
+      </form>
+    </div>
+  </section>
+</main>
+</div>
