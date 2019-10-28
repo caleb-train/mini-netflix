@@ -14,16 +14,24 @@
       <span [class.active]="auth=='login'" (click)= "switchAuth('login')">Log in</span>
     </header>
     <div class="auth-forms w-75 mx-auto py-1">
-      <form [class.active]="auth=='signup'" [class.invisible]="auth !=='signup'" action="" class="signup anim">
-        <input class="form-control" placeholder="First Name"/>
-        <input class="form-control" placeholder="Last Name"/>
-        <input class="form-control" placeholder="Email"/>
-        <input class="form-control" placeholder="Password" type="password"/>
+      <form autocomplete="off" [class.active]="auth=='signup'" class="signup anim" [formGroup]="signUpForm" (ngSubmit)="submitSignUp()">
+        <input formControlName="fullName" class="form-control" placeholder="Full Name"/>
+        <input formControlName="email" [class.is-invalid]="emailMsg && signUpForm.submitted" type="email" class="form-control" placeholder="Email"/>
+        <span class="invalid-feedback">{{emailMsg}}</span>
+        <div formGroupName='passwords'>
+          <input formControlName="password" [class.is-invalid]="passwordMsg && signUpForm.submitted" type="password" class="form-control" placeholder="Password"/>
+          <span class="invalid-feedback">{{passwordMsg}}</span>
+          <input formControlName="confirmPassword" [class.is-invalid]="confirmPasswordMsg && signUpForm.submitted" type="password" class="form-control" placeholder="Confirm Password"/>
+          <span class="invalid-feedback">{{confirmPasswordMsg}}</span>
+        </div>
         <button class="btn">Submit</button>
       </form>
-      <form [class.active]="auth=='login'" [class.invisible]="auth !=='login'" action="" class="login anim">
-          <input class="form-control" placeholder="Email"/>
-          <input class="form-control" placeholder="Password" type="password"/>
+      <form autocomplete="off" [class.active]="auth=='login'" #login="ngForm" (ngSubmit)="submitLogIn(login)" class="login anim">
+          <input class="form-control" ngModel name="email" type="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" #emailVar="ngModel" [class.is-invalid]="login.submitted && emailVar.invalid && emailVar.touched" placeholder="Email" required
+          />
+          <span class="invalid-feedback" *ngIf="login.submitted && emailVar.touched && (emailVar.errors?.pattern || emailVar.errors?.required)">Valid Email required</span>
+          <input class="form-control" ngModel name="password" minlength="5" #passwordVar="ngModel"  [class.is-invalid]="login.submitted && passwordVar.invalid && passwordVar.touched" placeholder="Password" type="password" required/>
+          <span class="invalid-feedback" *ngIf="login.submitted && passwordVar.touched && (passwordVar.errors?.minlength || passwordVar.errors?.required)">Password must be up to 5 in length</span>
           <button class="btn">Submit</button>
       </form>
     </div>
